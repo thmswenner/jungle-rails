@@ -7,6 +7,18 @@ main section.categories-show {
     flex-wrap:       wrap;
     justify-content: space-around;
 
+    .sold{
+      position: absolute;
+      width: 40%;
+      height: 40px;
+      background-image: linear-gradient( red, #f06d06);
+      padding: 10px 10px 10px 12px;
+      margin: -15px 0px 0px -15px;
+      border-bottom-right-radius: 25px;
+      color: white;
+      font-weight: 600;
+    }
+
     .product {
       // flex:      1;
       max-width: 260px;
@@ -18,6 +30,7 @@ main section.categories-show {
       padding:       15px;
       padding-bottom: 80px;
       margin-top:    20px;
+      overflow: hidden;
       // margin:        10px;
 
       header img {
