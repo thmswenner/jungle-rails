@@ -5,7 +5,8 @@ class OrderMailer < ApplicationMailer
     @fauxemail = "thmswenner@gmail.com"
     @order = order
     @total = order.total
+    @id = order.id
     @url = 'http://example.com/login'
-    mail(to: @fauxemail, subject:'Thank you for your order')
+    mail(to: @fauxemail, subject: "Receipt Order: #{@id}")
   end
 end
