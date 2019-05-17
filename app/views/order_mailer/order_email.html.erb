@@ -3,14 +3,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1> Welcome to jungle.com,</h1>
-    <p>
-      You have successfully purchased up to example.com,
-      your username is: <br>
-    </p>
-    <p>
-      To login to the site, just follow this.
-    </p>
+    <h1>Thank you for your purchase</h1>
+    <% @order.line_items.each do |item| %>
+      <p><%= item.id %></p>
+      <p><%= item.product.name %></p>
+    <% end %>
+    <p><%= @total %></p>
     <p>Thanks for your purchase and have a great day!</p>
   </body>
 </html>
