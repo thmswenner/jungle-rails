@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @total = @order.total
+    @line = @order.line_items
   end
 
   def create
