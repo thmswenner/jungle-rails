@@ -20,9 +20,9 @@
       <tbody>
       <tfoot>
         <tr>
-            <% LineItem.where(order_id: @order.id).each do |item| %>
-              <%= render 'item', product: Product.find(item.product_id), quantity: item.quantity %>
-            <% end %>
+          <% LineItem.where(order_id: @order.id).each do |item| %>
+            <%= render 'item', product: Product.find(item.product_id), quantity: item.quantity %>
+          <% end %>
         </tr>
       </tfoot>
     </table>
