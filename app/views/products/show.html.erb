@@ -30,15 +30,17 @@
 
 </section>
 
-<div>
-  <%= form_for [@product, @review] do |f| %>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %><br>
-    <%= f.label :rating %><br>
-    <%= f.select :rating, [1,2,3,4,5] %><br>
-    <%= f.submit("Enter Rating") %>
-  <% end %>
-</div>
+
+  <div>
+    <%= form_for [@product, @review] do |f| %>
+      <%= f.label :description %><br>
+      <%= f.text_area :description %><br>
+      <%= f.label :rating %><br>
+      <%= f.select :rating, [1,2,3,4,5] %><br>
+      <%= f.submit("Enter Rating") %>
+    <% end %>
+  </div>
+
 
 <section>
   <div class="row">
@@ -47,6 +49,9 @@
           <h4><%= r.user.first_name %> <%= r.user.last_name %></h4>
           <p><%= r.description %></p>
           <p><strong>Rating:</strong> <%= r.rating %></p>
+          <% if r.user == current_user %>
+          <%= button_to "delete", product_review_path(@product, r), :method => :delete %>
+        <% end %>
         </div>
     <% end %>
   </div>
