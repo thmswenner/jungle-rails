@@ -21,6 +21,7 @@ end
 
 # Let's do this ...
 
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
@@ -131,6 +132,24 @@ cat3.products.create!({
   quantity: 23,
   price: 2_483.75
 })
+
+## USERS
+puts "---------------------------------"
+puts "Creating User ..."
+puts "---------------------------------"
+
+mark = User.create!(first_name: "Mark", last_name: "Julia", email: "mark@hotmail.com", password: "a", password_confirmation: "a")
+julia = User.create!(first_name: "Julia", last_name: "Chris", email: "julia@hotmail.com", password: "a", password_confirmation: "a")
+chirs = User.create!(first_name: "Chris", last_name: "Mark", email: "chris@hotmail.com", password: "a", password_confirmation: "a")
+
+## REVIEWS
+puts "---------------------------------"
+puts "Creating reviews ..."
+puts "---------------------------------"
+
+Review.create!(product_id: 1, user_id: 1, description: "This is the best thing ever", rating: 5)
+Review.create!(product_id: 1, user_id: 2, description: "This is the worst thing ever", rating: 1)
+Review.create!(product_id: 1, user_id: 3, description: "This is ok", rating: 3)
 
 
 puts "DONE!"

@@ -21,11 +21,33 @@
           <dt>Quantity</dt>
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
-          <dd><%= @product.price %></dd>
+          <dd><%= humanized_money_with_symbol @product.price %></dd>
         </dl>
       </div>
     </div>
 
   </article>
 
+</section>
+
+<div>
+  <%= form_for [@product, @review] do |f| %>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %><br>
+    <%= f.label :rating %><br>
+    <%= f.select :rating, [1,2,3,4,5] %><br>
+    <%= f.submit("Enter Rating") %>
+  <% end %>
+</div>
+
+<section>
+  <div class="row">
+    <%  @reviews.each do |r| %>
+        <div class="col-md-6">
+          <h4><%= r.user.first_name %> <%= r.user.last_name %></h4>
+          <p><%= r.description %></p>
+          <p><strong>Rating:</strong> <%= r.rating %></p>
+        </div>
+    <% end %>
+  </div>
 </section>
